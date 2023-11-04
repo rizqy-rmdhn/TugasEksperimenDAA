@@ -38,10 +38,6 @@ public class RandomizedShellSort {
         int n = a.length;
         Random rand = new Random();
         for (int offset = n/2; offset > 0; offset /= 2) {
-            for (int p: a) {
-                System.out.print(p + " ");
-            }
-            System.out.println();
             for (int i = 0; i < n - offset; i += offset) {
                 compareRegions(a, i, i + offset, offset, rand);
             }
@@ -61,124 +57,125 @@ public class RandomizedShellSort {
                 compareRegions(a, i, i + offset, offset, rand);
             }
         }
-        for (int p: a) {
-                System.out.print(p + " ");
-            }
-        System.out.println();
+        
         return a;
     }
-    public static void main(String[] args) {
+    public static void test() {
         int[] test = {5, 3, 8, 2, 6, 7, 1, 4};
         test = randomizedShellSort(test);
+        for (int p: test) {
+                System.out.print(p + " ");
+        }
     }
-    //     int[] sizes = {(int) Math.pow(2, 9), (int) Math.pow(2, 13), (int) Math.pow(2, 16)};
-    //     for (int size: sizes) {
-    //         for (int x = 0; x < 3; x++) System.gc();
-    //         Random rand  = new Random(2106632182); // generate random with seed as NPM
-    //         int[] data = RandomDataGenerator.generateRandomData(size, rand);
-    //         int[] sortedData = RandomDataGenerator.sortRandomData(data);
-    //         int[] reverseSortedData = RandomDataGenerator.reverseSortRandomData(sortedData);
+    public static void main(String[] args) {
+        int[] sizes = {(int) Math.pow(2, 9), (int) Math.pow(2, 13), (int) Math.pow(2, 16)};
+        for (int size: sizes) {
+            for (int x = 0; x < 3; x++) System.gc();
+            Random rand  = new Random(2106632182); // generate random with seed as NPM
+            int[] data = RandomDataGenerator.generateRandomData(size, rand);
+            int[] sortedData = RandomDataGenerator.sortRandomData(data);
+            int[] reverseSortedData = RandomDataGenerator.reverseSortRandomData(sortedData);
 
-    //         for (int x = 0; x < 3; x++) System.gc();
-    //         // Random Data
-    //         long start = System.currentTimeMillis();
-    //         long startSize = Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory();
-    //         data = randomizedShellSort(data);
-    //         long finalSize = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory() - startSize;
-    //         long end = System.currentTimeMillis();
+            for (int x = 0; x < 3; x++) System.gc();
+            // Random Data
+            long start = System.currentTimeMillis();
+            long startSize = Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory();
+            data = randomizedShellSort(data);
+            long finalSize = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory() - startSize;
+            long end = System.currentTimeMillis();
 
-    //         System.out.println(String.format("Time taken for Sorting data with Randomized Shell Sort of size %d with random status: %d", 
-    //                                         size, (end - start)));
-    //         System.out.println(String.format("Memory used for Sorting data with Randomized Shell Sort of size %d with random status: %d", 
-    //                                         size, (finalSize)));
+            System.out.println(String.format("Time taken for Sorting data with Randomized Shell Sort of size %d with random status: %d", 
+                                            size, (end - start)));
+            System.out.println(String.format("Memory used for Sorting data with Randomized Shell Sort of size %d with random status: %d", 
+                                            size, (finalSize)));
 
-    //         for (int x = 0; x < 3; x++) System.gc();
-    //         // Sorted Data
-    //         start = System.currentTimeMillis();
-    //         startSize = Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory();
-    //         sortedData = randomizedShellSort(sortedData);
-    //         finalSize = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory() - startSize;
-    //         end = System.currentTimeMillis();
+            for (int x = 0; x < 3; x++) System.gc();
+            // Sorted Data
+            start = System.currentTimeMillis();
+            startSize = Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory();
+            sortedData = randomizedShellSort(sortedData);
+            finalSize = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory() - startSize;
+            end = System.currentTimeMillis();
             
-    //         System.out.println(String.format("Time taken for Sorting data with Randomized Shell Sort of size %d with sorted status: %d", 
-    //                                         size, (end - start)));
-    //         System.out.println(String.format("Memory used for Sorting data with Randomized Shell Sort of size %d with sorted status: %d", 
-    //                                         size, (finalSize)));
+            System.out.println(String.format("Time taken for Sorting data with Randomized Shell Sort of size %d with sorted status: %d", 
+                                            size, (end - start)));
+            System.out.println(String.format("Memory used for Sorting data with Randomized Shell Sort of size %d with sorted status: %d", 
+                                            size, (finalSize)));
 
-    //         for (int x = 0; x < 3; x++) System.gc();
-    //         // Reverse Sorted Data
-    //         start = System.currentTimeMillis();
-    //         startSize = Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory();
-    //         reverseSortedData = randomizedShellSort(reverseSortedData);
-    //         finalSize = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory() - startSize;
-    //         end = System.currentTimeMillis();
+            for (int x = 0; x < 3; x++) System.gc();
+            // Reverse Sorted Data
+            start = System.currentTimeMillis();
+            startSize = Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory();
+            reverseSortedData = randomizedShellSort(reverseSortedData);
+            finalSize = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory() - startSize;
+            end = System.currentTimeMillis();
 
-    //         System.out.println(String.format("Time taken for Sorting data with Randomized Shell Sort of size %d with reversed sorted status: %d", 
-    //                                         size, (end - start)));
-    //         System.out.println(String.format("Memory used for Sorting data with Randomized Shell Sort of size %d with reversed sorted status: %d", 
-    //                                         size, (finalSize)));
+            System.out.println(String.format("Time taken for Sorting data with Randomized Shell Sort of size %d with reversed sorted status: %d", 
+                                            size, (end - start)));
+            System.out.println(String.format("Memory used for Sorting data with Randomized Shell Sort of size %d with reversed sorted status: %d", 
+                                            size, (finalSize)));
 
-    //         // Sanity check to see if they are sorted
-    //         int currData = data[0];
-    //         boolean isSorted = true;
-    //         for (int element: data) {
-    //             if (element < currData) {
-    //                 isSorted = false;
-    //                 break;
-    //             }
-    //             else {
-    //                 currData = element;
-    //             }
-    //         }
-    //         if (!isSorted) {
-    //             System.out.println(String.format("Sorting data with Randomized Shell Sort of size %d with random status failed", 
-    //                                         size));
-    //         }
-    //         else {
-    //             System.out.println(String.format("Sorting data with Randomized Shell Sort of size %d with random status succeed", 
-    //                                         size));
-    //         }
+            // Sanity check to see if they are sorted
+            int currData = data[0];
+            boolean isSorted = true;
+            for (int element: data) {
+                if (element < currData) {
+                    isSorted = false;
+                    break;
+                }
+                else {
+                    currData = element;
+                }
+            }
+            if (!isSorted) {
+                System.out.println(String.format("Sorting data with Randomized Shell Sort of size %d with random status failed", 
+                                            size));
+            }
+            else {
+                System.out.println(String.format("Sorting data with Randomized Shell Sort of size %d with random status succeed", 
+                                            size));
+            }
 
-    //         currData = sortedData[0];
-    //         isSorted = true;
-    //         for (int element: sortedData) {
-    //             if (element < currData) {
-    //                 isSorted = false;
-    //                 break;
-    //             }
-    //             else {
-    //                 currData = element;
-    //             }
-    //         }
-    //         if (!isSorted) {
-    //             System.out.println(String.format("Sorting data with Randomized Shell Sort of size %d with sorted status failed", 
-    //                                         size));
-    //         }
-    //         else {
-    //             System.out.println(String.format("Sorting data with Randomized Shell Sort of size %d with sorted status succeed", 
-    //                                         size));
-    //         }
+            currData = sortedData[0];
+            isSorted = true;
+            for (int element: sortedData) {
+                if (element < currData) {
+                    isSorted = false;
+                    break;
+                }
+                else {
+                    currData = element;
+                }
+            }
+            if (!isSorted) {
+                System.out.println(String.format("Sorting data with Randomized Shell Sort of size %d with sorted status failed", 
+                                            size));
+            }
+            else {
+                System.out.println(String.format("Sorting data with Randomized Shell Sort of size %d with sorted status succeed", 
+                                            size));
+            }
 
-    //         currData = reverseSortedData[0];
-    //         isSorted = true;
-    //         for (int element: reverseSortedData) {
-    //             if (element < currData) {
-    //                 isSorted = false;
-    //                 break;
-    //             }
-    //             else {
-    //                 currData = element;
-    //             }
-    //         }
-    //         if (!isSorted) {
-    //             System.out.println(String.format("Sorting data with Randomized Shell Sort of size %d with reverse sorted status failed", 
-    //                                         size));
-    //         }
-    //         else {
-    //             System.out.println(String.format("Sorting data with Randomized Shell Sort of size %d with reverse sorted status succeed", 
-    //                                         size));
-    //         }
-    //         for (int x = 0; x < 3; x++) System.gc();
-    //     }    
-    // }   
+            currData = reverseSortedData[0];
+            isSorted = true;
+            for (int element: reverseSortedData) {
+                if (element < currData) {
+                    isSorted = false;
+                    break;
+                }
+                else {
+                    currData = element;
+                }
+            }
+            if (!isSorted) {
+                System.out.println(String.format("Sorting data with Randomized Shell Sort of size %d with reverse sorted status failed", 
+                                            size));
+            }
+            else {
+                System.out.println(String.format("Sorting data with Randomized Shell Sort of size %d with reverse sorted status succeed", 
+                                            size));
+            }
+            for (int x = 0; x < 3; x++) System.gc();
+        }    
+    }   
 }
